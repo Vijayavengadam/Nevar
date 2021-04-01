@@ -7,10 +7,18 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import App from './App';
 
-ReactDOM.render(    
-    <Router> 
-        <App />
-    </Router>,
-    document.getElementById('root')
-    );
+const startApp =() => {
+    ReactDOM.render(    
+        <Router> 
+            <App />
+        </Router>,
+        document.getElementById('root')
+        );
+}
 
+if(window.cordova) {
+
+    document.addEventListener('deviceready', startApp,false);
+}else{
+    startApp()
+}
